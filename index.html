@@ -6,170 +6,238 @@
   <title>Refilwe Mokoena - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- PROFESSIONAL FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #f7f7f7; color: #333; line-height: 1.7; overflow-x: hidden; transition: 0.3s ease; }
+    body.dark { background: #121212; color: #e6e6e6; }
+    html { scroll-behavior: smooth; }
+    a { text-decoration: none; }
+    header { width: 100%; background: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.3s; }
+    body.dark header { background: #1a1a1a; }
+    .container { width: 90%; max-width: 1200px; margin: auto; }
+    .nav-content { display: flex; align-items: center; justify-content: center; gap: 40px; }
+    .logo { font-size: 1.7rem; font-weight: 700; color: #ff4c60; margin-right: auto; }
+    nav ul { display: flex; list-style: none; gap: 25px; }
+    nav a { font-weight: 500; color: #333; transition: 0.3s; }
+    body.dark nav a { color: #e6e6e6; }
+    nav a:hover { color: #ff4c60; }
+    .dark-toggle { border: none; background: transparent; font-size: 1.7rem; cursor: pointer; color: #ff4c60; }
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 8px; font-weight: 500; transition: 0.3s; }
+    .btn-primary { background: #ff4c60; color: white; }
+    .btn-primary:hover { transform: translateY(-3px); background: #e63e53; }
+    .btn-outline { display: inline-block; border: 2px solid #ff4c60; color: #ff4c60; padding: 10px 18px; border-radius: 8px; margin-top: 10px; transition: 0.3s; text-align: center; }
+    .btn-outline:hover { background: #ff4c60; color: white; }
+    #hero { padding: 80px 0; }
+    .hero-content { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .hero-text { flex: 1; padding-right: 40px; }
+    .hero-text h1 { font-size: 3rem; font-weight: 700; margin-bottom: 10px; }
+    .hero-text p { font-size: 1.1rem; margin-bottom: 20px; }
+    .hero-img { flex: 1; text-align: center; display: flex; justify-content: center; }
+    .hero-img img { width: 330px; height: 420px; object-fit: cover; border-radius: 50% / 40%; border: 7px solid #ff4c60; box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+    h2.section-title { font-size: 2rem; font-weight: 700; text-align: center; margin-bottom: 20px; }
+    .section-subtitle { text-align: center; margin-bottom: 40px; color: #555; }
+    #about, #experience, #skills, #projects { padding: 80px 0; }
+    .about-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.07); }
+    body.dark .about-box { background: #1f1f1f; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 25px; }
+    .skill-card { background: white; padding: 22px; border-radius: 10px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.07); transition: 0.3s; }
+    .skill-card:hover { transform: translateY(-7px); }
+    body.dark .skill-card { background: #1f1f1f; }
+    .skill-card i { font-size: 2.3rem; color: #ff4c60; margin-bottom: 8px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+    .project-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: 0.3s; text-align: center; }
+    .project-card:hover { transform: translateY(-7px); }
+    .project-card img { width: 100%; height: 160px; object-fit: contain; background: #f3f3f3; }
+    body.dark .project-card { background: #1f1f1f; box-shadow: 0 5px 20px rgba(255,255,255,0.05); }
+    body.dark .project-card img { background: #333; }
+    .project-info { padding: 15px; text-align: center; }
+    footer { background: #222; color: white; padding: 50px 0; margin-top: 70px; display: flex; flex-direction: column; align-items: center; }
+    .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 30px; width: 100%; max-width: 1200px; }
+    .social-links a { font-size: 1.6rem; margin-right: 15px; color: white; transition: 0.3s; }
+    .social-links a:hover { color: #ff4c60; }
+    #contact-form { display: none; padding: 80px 0; width: 100%; }
+    .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    .contact-form .form-group { display: flex; flex-direction: column; }
+    .contact-form label { margin-bottom: 5px; font-weight: 500; color: #333; }
+    .contact-form input, .contact-form textarea { padding: 12px 15px; border: 1px solid #ccc; border-radius: 8px; background: white; font-size: 1rem; transition: border 0.3s; }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: #ff4c60; outline: none; }
+    .contact-form button { align-self: flex-start; cursor: pointer; transition: transform 0.2s; }
+    .contact-form button:hover { transform: translateY(-2px); }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="container">
+  <div class="container nav-content">
     <div class="logo">RM</div>
     <nav>
       <ul>
-        <li><a href="#intro">About</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="ccccv.pdf" class="btn btn-primary" target="_blank">Resume/CV</a></li>
+        <li><a href="#contact-form" id="contactBtn">Contact</a></li>
+        <li><a class="btn btn-primary" href="ccccv.pdf" target="_blank">Resume</a></li>
       </ul>
     </nav>
+    <button class="dark-toggle" id="darkToggle"><i class="ri-moon-line"></i></button>
   </div>
 </header>
 
-<main>
-  <section id="intro" class="intro-section">
-    <div class="container">
-      <div class="intro-content">
-        <div class="intro-text">
-          <p class="greeting">Hello, I'm</p>
-          <h1>Refilwe Mokoena</h1>
-          <p class="lead">A passionate <span class="highlight">Computer Science student</span> at Tshwane University of Technology, currently an <span class="highlight">mLab (codetribe) Trainee</span>. I specialize in building robust and innovative digital solutions.</p>
-          <a href="ccccv.pdf" class="btn btn-secondary" download>Download Resume <i class="ri-download-line"></i></a>
-        </div>
-        <div class="intro-image">
-          <img src="pp.png" alt="Refilwe Mokoena" />
-        </div>
-      </div>
+<section id="hero">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1>Hi, I'm <span style="color:#ff4c60;">Refilwe Mokoena</span></h1>
+      <p>I am a Computer Science student at Tshwane University of Technology and a trainee at mLab Codetribe. I enjoy creating simple, modern projects and learning both frontend and backend development.</p>
+      <a href="ccccv.pdf" class="btn btn-primary" download>Download CV <i class="ri-download-line"></i></a>
     </div>
-  </section>
-
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <h2><i class="ri-code-box-line section-icon"></i> My Skills</h2>
-      <div class="skills-grid">
-
-        <div class="skill-card">
-          <i class="ri-javascript-fill icon"></i>
-          <span>JavaScript</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-reactjs-fill icon"></i>
-          <span>React</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-nodejs-fill icon"></i>
-          <span>Node.js</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-java-fill icon"></i>
-          <span>Java</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-html5-fill icon"></i>
-          <span>HTML5</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-css3-fill icon"></i>
-          <span>CSS3</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-database-2-fill icon"></i>
-          <span>PL/SQL</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-android-fill icon"></i>
-          <span>Kotlin</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-git-repository-fill icon"></i>
-          <span>Git</span>
-        </div>
-
-        <div class="skill-card">
-          <i class="ri-terminal-fill icon"></i>
-          <span>Command Line</span>
-        </div>
-
-      </div>
+    <div class="hero-img">
+      <img src="IMG_7549.jpg" alt="Profile Image">
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2><i class="ri-folder-open-line section-icon"></i> My Projects</h2>
-      <div class="projects-grid">
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Who I am and what I do</p>
+    <div class="about-box">
+      <p>I am a Computer Science student at Tshwane University of Technology and a trainee at mLab Codetribe. I enjoy creating simple, modern projects and learning both frontend and backend development.</p>
+      <br>
+      <p>I enjoy learning new technologies and building simple, useful projects. I am hardworking, focused, and always willing to learn. My goal is to grow as a developer and use my skills to build solutions that can help people in my community.</p>
+    </div>
+  </div>
+</section>
 
-        <!-- Project 1 -->
-        <div class="project-card">
-          <img src="cc-removebg-preview.png" alt="Convertor Calculator Project" />
+<section id="experience">
+  <div class="container">
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Where I gained real skills</p>
+    <div class="about-box">
+      <h3 style="color:#ff4c60; margin-bottom:10px;">mLab Codetribe – Software Developer Trainee</h3>
+      <p>I am currently a Software Developer trainee at mLab Codetribe. I work on real projects while improving my frontend and backend skills. This experience helps me learn teamwork, problem-solving, and how to build applications from start to finish.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">Technologies I work with</p>
+    <div class="skills-grid">
+      <div class="skill-card"><i class="ri-javascript-fill"></i>JavaScript</div>
+      <div class="skill-card"><i class="ri-reactjs-fill"></i>React</div>
+      <div class="skill-card"><i class="ri-nodejs-fill"></i>Node.js</div>
+      <div class="skill-card"><i class="ri-java-fill"></i>Java</div>
+      <div class="skill-card"><i class="ri-html5-fill"></i>HTML</div>
+      <div class="skill-card"><i class="ri-css3-fill"></i>CSS</div>
+      <div class="skill-card"><i class="ri-database-2-fill"></i>PL/SQL</div>
+      <div class="skill-card"><i class="ri-android-fill"></i>Kotlin</div>
+      <div class="skill-card"><i class="ri-git-commit-line"></i>Git</div>
+      <div class="skill-card"><i class="ri-terminal-fill"></i>CLI</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Some of my best work</p>
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="cc-removebg-preview.png">
+        <div class="project-info">
           <h3>Convertor Calculator</h3>
-          <p>A web application for various unit conversions.</p>
-          <a href="https://refilwe15.github.io/convertor-hub-web-app/" target="_blank" class="project-link">
-            View Project <i class="ri-external-link-line"></i>
-          </a>
+          <p>Web app for converting units quickly and easily.</p>
+          <a class="btn btn-outline" href="https://refilwe15.github.io/convertor-hub-web-app/" target="_blank">View Project</a>
         </div>
-
-        <!-- Project 2 -->
-        <div class="project-card">
-          <img src="istockphoto-1069238856-612x612-removebg-preview.png" alt="Task Manager Project" />
-          <h3>Task Management</h3>
-          <p>An application to help manage tasks and to-do lists.</p>
-          <a href="https://refilwe15.github.io/task-4.4-starter/" target="_blank" class="project-link">
-            View Project <i class="ri-external-link-line"></i>
-          </a>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card">
-          <img src="computer-icons-task-portable-network-graphics-management-action-item-png-favpng-Qi6zdTwTbvVtGTwZP46BCZCYt-removebg-preview.png" alt="Portfolio Website Project" />
-          <h3>Portfolio Website</h3>
-          <p>This very website, built to showcase my skills and projects.</p>
-          <a href="project4.html" target="_blank" class="project-link">View Project <i class="ri-external-link-line"></i></a>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card">
-          <img src="1111.png".png" alt="Weather App Project" />
-          <h3>Weather App</h3>
-          <p>A web app that shows live weather updates using an API.</p>
-          <a href="https://weather-app-react-task4-codetribe.vercel.app/" target="_blank" class="project-link">
-            View Project <i class="ri-external-link-line"></i>
-          </a>
-        </div>
-
       </div>
+      <div class="project-card">
+        <img src="istockphoto-1069238856-612x612-removebg-preview.png">
+        <div class="project-info">
+          <h3>Task Management</h3>
+          <p>Organize your tasks with an intuitive interface.</p>
+          <a class="btn btn-outline" href="https://refilwe15.github.io/task-4.4-starter/" target="_blank">View Project</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="1111.png">
+        <div class="project-info">
+          <h3>Weather App</h3>
+          <p>Shows live weather updates using an API.</p>
+          <a class="btn btn-outline" href="https://weather-app-react-task4-codetribe.vercel.app/" target="_blank">View Project</a>
+        </div>
+      </div>
+      <!-- Add more projects here as needed -->
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<section id="contact-form">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">Send me a message</p>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Name">
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required placeholder="Your Email">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Your Message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
 
 <footer id="contact">
-  <div class="container">
-    <div class="footer-content">
-      <div class="contact-info">
-        <h3>Contact Me</h3>
-        <p>Polokwane, Limpopo, South Africa</p>
-        <p><a href="mailto:mrefilwe880@gmail.com">mrefilwe880@gmail.com</a></p>
-      </div>
-
-      <div class="social-links">
-        <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
-        <a href="https://github.com/refilwe15" target="_blank" aria-label="GitHub"><i class="ri-github-box-fill"></i></a>
-        <a href="https://twitter.com/yourhandle" target="_blank" aria-label="Twitter"><i class="ri-twitter-x-fill"></i></a>
-      </div>
+  <div class="container footer-content">
+    <div>
+      <h3>Contact Me</h3>
+      <p>Polokwane, Limpopo, South Africa</p>
+      <p><a href="mailto:mrefilwe880@gmail.com" style="color:#ff4c60;">mrefilwe880@gmail.com</a></p>
     </div>
-
-    <p class="copyright">&copy; 2023 Refilwe Mokoena. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/refilwe-mokoena-a86899375/"><i class="ri-linkedin-fill"></i></a>
+      <a href="https://github.com/refilwe15"><i class="ri-github-fill"></i></a>
+      <a href="#"><i class="ri-twitter-x-fill"></i></a>
+    </div>
   </div>
+  <p style="text-align:center;margin-top:20px;">© 2024 Refilwe Mokoena. All rights reserved.</p>
 </footer>
+
+<script>
+  // Dark mode toggle
+  const toggleBtn = document.getElementById("darkToggle");
+  const icon = toggleBtn.querySelector("i");
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    icon.classList.contains("ri-moon-line") 
+      ? icon.classList.replace("ri-moon-line","ri-sun-line")
+      : icon.classList.replace("ri-sun-line","ri-moon-line");
+  });
+
+  // Show contact form on button click
+  const contactBtn = document.getElementById("contactBtn");
+  const contactFormSection = document.getElementById("contact-form");
+  contactBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    contactFormSection.scrollIntoView({ behavior: 'smooth' });
+    contactFormSection.style.display = 'block';
+  });
+</script>
 
 </body>
 </html>
